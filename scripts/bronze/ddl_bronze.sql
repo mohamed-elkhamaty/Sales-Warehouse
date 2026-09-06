@@ -27,10 +27,10 @@ create table bronze.crm_prd_info(
 if OBJECT_ID('bronze.crm_sales_details','U') is not null
 	drop table bronze.crm_sales_details
 create table bronze.crm_sales_details(
-	sls_ord_num int,
+	sls_ord_num nvarchar(50),
 	sls_prd_key nvarchar(50),
 	sls_cust_id int,
-	sls_order_dt date,
+	sls_order_dt int,
 	sls_ship_dt date,
 	sls_due_dt date,
 	sls_sales int,
@@ -43,7 +43,7 @@ create table bronze.crm_sales_details(
 if OBJECT_ID('bronze.erp_cust','U') is not null
 	drop table bronze.erp_cust
 create table bronze.erp_cust(
-	cid int,
+	cid nvarchar(50),
 	bdate date,
 	gen nvarchar(50)
 	);
@@ -51,14 +51,14 @@ create table bronze.erp_cust(
 if OBJECT_ID('bronze.erp_loc','U') is not null
 	drop table bronze.erp_loc
 create table bronze.erp_loc(
-	cid int,
+	cid nvarchar(50),
 	cntry nvarchar(50)
 	);
 
 if OBJECT_ID('bronze.erp_px_cat','U') is not null
 	drop table bronze.erp_px_cat
 create table bronze.erp_px_cat(
-	id int,
+	id nvarchar(50),
 	cat nvarchar(50),
 	subcat nvarchar(50),
 	maintenance nvarchar(50)

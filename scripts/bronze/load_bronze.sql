@@ -85,7 +85,7 @@ begin
 		print 'whole load duration: '+cast(datediff(second,@st,@et) as nvarchar)+' seconds';
 	end try
 	begin catch
-		print 'error during loading bronze layer'
+		print 'error occured during loading bronze layer'
 	end catch
 
 end
