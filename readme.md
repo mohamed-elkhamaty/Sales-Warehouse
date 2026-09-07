@@ -83,7 +83,7 @@ data integraion
 
 Data Model
 
-![data_model.png](documennts/data_model.png)
+![data_model.png](documents/data_model.png)
 
 Data Flow through the source & 3 layers
 
