@@ -1,90 +1,108 @@
-# Data Warehouse project
+# 🏗️ Data Warehouse Project
 
+This project demonstrates a **comprehensive data warehousing workflow**, from building a data warehouse to generating actionable business insights. It highlights industry best practices in data engineering and analytics.
 
+Built entirely on **SQL Server**, the project consolidates raw sales data from two source systems (**CRM** and **ERP**) into a layered warehouse (Bronze → Silver → Gold) following the **Medallion Architecture**, then exposes a clean **Star Schema** in the Gold layer, ready for BI reporting and machine learning use cases.
 
-This project demonstrates a **comprehensive** data warehousing workflow, from building a data warehouse to generating actionable insights.
+---
 
-It highlights industry best practices in data engineering and analytics.
+## 📂 Repository Structure
 
-</aside>
+```
+Sales-Warehouse/
+│
+├── datasets/       # Raw source CSV files (CRM & ERP)
+├── documents/       # Diagrams & documentation assets (architecture, data model, ETL, etc.)
+├── scripts/       # SQL scripts for building Bronze, Silver, and Gold layers
+├── tests/       # Data quality checks
+└── README.md
+```
 
-<aside>
-<img src="https://app.notion.com/icons/folder_gray.svg" alt="https://app.notion.com/icons/folder_gray.svg" width="40px" />
+---
 
-## Project Requirement:
+## 📋 Project Requirements
 
-#### building a Data Warehouse
+### 1️⃣ Building the Data Warehouse
 
-objectives:
+**Objective:**
+Develop a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
 
-develop a modern data warehouse using sql server to consolisate sales data, enabling analytical reporting and informed decision-making.
+**Specifications:**
 
-Specifications:
+| # | Requirement | Details |
+|---|---|---|
+| 1 | Data Sources | Two data sources (ERP, CRM), provided as CSV files |
+| 2 | Data Quality | Cleanse and resolve data quality issues prior to analysis |
+| 3 | Integration | Combine both sources into a single, user-friendly data model designed for analytical queries |
+| 4 | Scope | Focus on the latest dataset only; historization of data is not required |
+| 5 | Documentation | Provide clear documentation of the data model to support both business stakeholders and analytics teams |
 
-1. data scources: two data sources (ERP,CRM) as CSV files
-2. data quality
-3. integration
-4. scope: no historization needed
-5. documentation
+### 2️⃣ BI: Analytics & Reporting
 
-#### BI: Analytical & reporting:
+**Objective:**
+Develop SQL-based analytics to deliver detailed insights into:
 
-objectives:
+- **Customer Behavior**
+- **Product Performance**
+- **Sales Trends**
 
-develop SQL-based analytics to deliver detailed insights into stakeholders
+These insights empower stakeholders with key business metrics, enabling strategic decision-making.
 
-</aside>
+---
 
-![Screenshot_20260905-081920_YouTube ReVanced.png](documents/DA_process.png)
+## 🏛️ Data Architecture
 
-|  | **bronze layer** | **silver layer** | **gold layer** |
-| --- | --- | --- | --- |
-| **definition** | the raw data(as-is) | clean and transformed data | data marts |
-| obj | traceability & debugging | prepare data for analysis | for reporting |
-| **object type** | tables | tables | views |
-| l**oad method** | full load (truncate & insert) | full load (truncate & insert) | none |
-| **transformation** | none |   1. cleaniing
-  2. standardization
-  3. normalization
-  4. enrichment |   • integration
-  •  aggregation
-  • business logic & rules |
-| **data modelling** | none | none |   • schema
-  • aggregated objects
-  • flat tables |
+The project follows the **Medallion Architecture** (Bronze, Silver, Gold layers):
 
-Data Architecture
+![Data Architecture](documents/Data_Architecture_DW.png)
 
-![Data_Architecture_DW.png](documents/Data_Architecture_DW.png)
+| | **Bronze Layer** | **Silver Layer** | **Gold Layer** |
+|---|---|---|---|
+| **Definition** | Raw data (as-is) | Clean and transformed data | Data marts (business-ready) |
+| **Objective** | Traceability & debugging | Prepare data for analysis | For reporting |
+| **Object Type** | Tables | Tables | Views |
+| **Load Method** | Full load (truncate & insert) | Full load (truncate & insert) | None |
+| **Transformation** | None | 1. Cleaning<br>2. Standardization<br>3. Normalization<br>4. Enrichment | • Integration<br>• Aggregation<br>• Business logic & rules |
+| **Data Modeling** | None | None | • Star schema<br>• Aggregated objects<br>• Flat tables |
 
-ETL process
+### Data Analysis (DA) Process
 
-![ETL process](documents/ETL_process.png)
+![DA Process](documents/DA_process.png)
 
-ETL process
+### ETL Process
 
-Naming conventions
+![ETL Process](documents/ETL_process.png)
 
-<aside>
-<img src="https://app.notion.com/icons/shop_gray.svg" alt="https://app.notion.com/icons/shop_gray.svg" width="40px" />
+---
 
-using snake_case for naming conventions
+## 🔤 Naming Conventions
 
-Table naming conventions: 
+The project uses **snake_case** for all naming conventions.
 
-- bronze → <source>_<entity> like: crm_customer_info
-- silver → <source>_<entity> like: crm_customer_info
-- gold → <type>_<entity> like: dim_customers
-</aside>
+**Table naming conventions:**
 
-![data integraion](documents/Data_Integration_Diagram.png)
+| Layer | Pattern | Example |
+|---|---|---|
+| Bronze | `<source>_<entity>` | `crm_customer_info` |
+| Silver | `<source>_<entity>` | `crm_customer_info` |
+| Gold | `<type>_<entity>` | `dim_customers` |
 
-data integraion
+---
 
-Data Model
+## 🔗 Data Integration
 
-![data_model.png](documents/data_model.png)
+![Data Integration](documents/Data_Integration_Diagram.png)
 
-Data Flow through the source & 3 layers
+---
 
-![data_flow.png](documents/data_flow.png)
+## 🗂️ Data Model
+
+![Data Model](documents/data_model.png)
+
+---
+
+## 🔄 Data Flow
+
+Data flow through the source systems and the three layers (Bronze → Silver → Gold):
+
+![Data Flow](documents/data_flow.png)
