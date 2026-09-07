@@ -55,11 +55,11 @@ develop SQL-based analytics to deliver detailed insights into stakeholders
 
 Data Architecture
 
-![Data_Architecture_DW.png](Data_Architecture_DW.png)
+![Data_Architecture_DW.png](documents/Data_Architecture_DW.png)
 
 ETL process
 
-![ETL process](Screenshot_20260905-060314_YouTube_ReVanced.png)
+![ETL process](documents/ETL_process.png)
 
 ETL process
 
@@ -77,14 +77,14 @@ Table naming conventions:
 - gold → <type>_<entity> like: dim_customers
 </aside>
 
-![data integraion](Data_Integration_Diagram.png)
+![data integraion](documents/Data_Integration_Diagram.png)
 
 data integraion
 
 Data Model
 
-![data_model.png](data_model.png)
+![data_model.png](documennts/data_model.png)
 
 Data Flow through the source & 3 layers
 
-![data_flow.png](data_flow.png)
+![data_flow.png](documents/data_flow.png)
