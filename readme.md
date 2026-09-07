@@ -1,20 +1,6 @@
 # Data Warehouse project
 
-Stages
 
-[main stages](main%20stages%203d25ff571a9b8014bf21c0520fdc8b5f.csv)
-
-Tasks
-
-[project tasks](project%20tasks%203d25ff571a9b802fb3bac4cba355eb27.csv)
-
-layers
-
-[Layers](Layers%203d25ff571a9b80a98619e830a796a670.csv)
-		
-
-<aside>
-<img src="https://app.notion.com/icons/folder_gray.svg" alt="https://app.notion.com/icons/folder_gray.svg" width="40px" />
 
 This project demonstrates a **comprehensive** data warehousing workflow, from building a data warehouse to generating actionable insights.
 
@@ -49,7 +35,7 @@ develop SQL-based analytics to deliver detailed insights into stakeholders
 
 </aside>
 
-![Screenshot_20260905-081920_YouTube ReVanced.png](Screenshot_20260905-081920_YouTube_ReVanced.png)
+![Screenshot_20260905-081920_YouTube ReVanced.png](documents/DA_process.png)
 
 |  | **bronze layer** | **silver layer** | **gold layer** |
 | --- | --- | --- | --- |
