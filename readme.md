@@ -9,46 +9,28 @@ Built entirely on **SQL Server**, the project consolidates raw sales data from t
 ## 📂 Repository Structure
 
 ```
-Sales-Warehouse/
+data-warehouse-project/
 │
-├── datasets/       # Raw source CSV files (CRM & ERP)
-├── documents/       # Diagrams & documentation assets (architecture, data model, ETL, etc.)
-├── scripts/       # SQL scripts for building Bronze, Silver, and Gold layers
-├── tests/       # Data quality checks
-└── README.md
+├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
+│
+├── documents/                          # Project documentation and architecture details
+│   ├── ETL_process.png                 # shows all different techniquies and methods of ETL
+│   ├── data_architecture.png           # shows the project's architecture
+│   ├── data_flow.png                   # show the data flow diagram
+│   ├── data_models.png                 # show data models (star schema)
+│
+├── scripts/                            # SQL scripts for ETL and transformations
+│   ├── bronze/                         # Scripts for extracting and loading raw data
+│   ├── silver/                         # Scripts for cleaning and transforming data
+│   ├── gold/                           # Scripts for creating analytical models
+│
+├── tests/                              # Test scripts and quality files
+│
+├── README.md                           # Project overview and instructions
+└── .gitignore                          # Files and directories to be ignored by Git
 ```
 
----
 
-## 📋 Project Requirements
-
-### 1️⃣ Building the Data Warehouse
-
-**Objective:**
-Develop a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
-
-**Specifications:**
-
-| # | Requirement | Details |
-|---|---|---|
-| 1 | Data Sources | Two data sources (ERP, CRM), provided as CSV files |
-| 2 | Data Quality | Cleanse and resolve data quality issues prior to analysis |
-| 3 | Integration | Combine both sources into a single, user-friendly data model designed for analytical queries |
-| 4 | Scope | Focus on the latest dataset only; historization of data is not required |
-| 5 | Documentation | Provide clear documentation of the data model to support both business stakeholders and analytics teams |
-
-### 2️⃣ BI: Analytics & Reporting
-
-**Objective:**
-Develop SQL-based analytics to deliver detailed insights into:
-
-- **Customer Behavior**
-- **Product Performance**
-- **Sales Trends**
-
-These insights empower stakeholders with key business metrics, enabling strategic decision-making.
-
----
 
 ## 🏛️ Data Architecture
 
@@ -56,18 +38,38 @@ The project follows the **Medallion Architecture** (Bronze, Silver, Gold layers)
 
 ![Data Architecture](documents/Data_Architecture_DW.png)
 
-| | **Bronze Layer** | **Silver Layer** | **Gold Layer** |
-|---|---|---|---|
-| **Definition** | Raw data (as-is) | Clean and transformed data | Data marts (business-ready) |
-| **Objective** | Traceability & debugging | Prepare data for analysis | For reporting |
-| **Object Type** | Tables | Tables | Views |
-| **Load Method** | Full load (truncate & insert) | Full load (truncate & insert) | None |
-| **Transformation** | None | 1. Cleaning<br>2. Standardization<br>3. Normalization<br>4. Enrichment | • Integration<br>• Aggregation<br>• Business logic & rules |
-| **Data Modeling** | None | None | • Star schema<br>• Aggregated objects<br>• Flat tables |
-
-### Data Analysis (DA) Process
-
 ![DA Process](documents/DA_process.png)
+1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
+2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
+3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
+
+---
+
+## 📖 Project Overview
+
+This project involves:
+
+1. **Data Architecture**: Designing a Modern Data Warehouse Using Medallion Architecture **Bronze**, **Silver**, and **Gold** layers.
+2. **ETL Pipelines**: Extracting, transforming, and loading data from source systems into the warehouse.
+3. **Data Modeling**: Developing fact and dimension tables optimized for analytical queries.
+
+## 🚀 Project Requirements
+
+### Building the Data Warehouse (Data Engineering)
+
+#### Objective
+
+Develop a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
+
+#### Specifications
+
+- **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
+- **Data Quality**: Cleanse and resolve data quality issues prior to analysis.
+- **Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
+- **Scope**: Focus on the latest dataset only; historization of data is not required.
+- **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
+
+---
 
 ### ETL Process
 
